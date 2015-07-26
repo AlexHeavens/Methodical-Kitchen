@@ -8,7 +8,7 @@ package net.alexanderheavens.projects.methodicalkitchen.pantry;
  * @author Alexander Heavens (alexander.heavens@gmail.com)
  *
  */
-public class PantryItemInstance {
+public class ItemInstance {
 
 	private final Pantry pantry;
 	
@@ -18,7 +18,7 @@ public class PantryItemInstance {
 	 * @param pantry
 	 *            the Pantry to add the item to, must be non-null.
 	 */
-	public PantryItemInstance(Pantry pantry) {
+	public ItemInstance(Pantry pantry) {
 		
 		if(pantry == null){
 			throw new NullPointerException("pantry");
