@@ -31,7 +31,7 @@ public class Pantry {
 	/**
 	 * An iterator over all item instances held in a the Pantry.
 	 * 
-	 * @return
+	 * @return All instances of Items in the Pantry.
 	 */
 	public Collection<ItemInstance> getItemInstances() {
 		return itemInstances;
