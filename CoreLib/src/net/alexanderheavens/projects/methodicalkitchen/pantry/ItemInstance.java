@@ -33,13 +33,13 @@ public class ItemInstance {
 	public ItemInstance(final Pantry pantry, final Item item, final Amount amount) {
 
 		if (pantry == null) {
-			throw new NullPointerException("pantry");
+			throw new NullPointerException("ItemInstance pantry");
 		}
 		if (item == null) {
-			throw new NullPointerException("item");
+			throw new NullPointerException("ItemInstance item");
 		}
 		if (amount == null) {
-			throw new NullPointerException("amount");
+			throw new NullPointerException("ItemInstance amount");
 		}
 
 		this.pantry = pantry;

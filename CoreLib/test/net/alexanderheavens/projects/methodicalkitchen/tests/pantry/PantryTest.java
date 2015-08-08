@@ -16,7 +16,7 @@ public class PantryTest {
 		final int instanceCount = 1000;
 		final HashSet<ItemInstance> testItemInstanceSet = new HashSet<ItemInstance>(instanceCount);
 
-		Pantry testPantry = new Pantry();
+		final Pantry testPantry = new Pantry();
 		for (int i = 0; i < instanceCount; i++) {
 			testItemInstanceSet.add(testPantry.addItemInstance());
 		}

@@ -22,6 +22,9 @@ public class Item {
 
 	/**
 	 * Create an Item with the default name, DFLT_NAME.
+	 * 
+	 * @param pantry
+	 *            the Pantry that this item was added to.
 	 */
 	public Item() {
 		this(DFLT_NAME);
@@ -38,7 +41,7 @@ public class Item {
 		if (name == null) {
 			throw new NullPointerException("Item name");
 		}
-		if (name.equals("")){
+		if (name.equals("")) {
 			throw new IllegalArgumentException("Empty Item name");
 		}
 
