@@ -33,6 +33,9 @@ public class ItemChangeEvent extends PantryEvent {
 		if (newItem == null) {
 			throw new NullPointerException("ItemChangeEvent newItem");
 		}
+		if (oldItem.equals(newItem)) {
+			throw new IllegalArgumentException("ItemChangeEvent oldItem and newItem cannot be equivalent.");
+		}
 
 		this.oldItem = oldItem;
 		this.newItem = newItem;

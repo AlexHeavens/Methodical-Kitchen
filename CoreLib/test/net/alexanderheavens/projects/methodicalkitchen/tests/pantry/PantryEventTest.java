@@ -14,8 +14,8 @@ public class PantryEventTest {
 	@Test
 	public void testCreateBasicPantryEvent() {
 		final Pantry testPantry = new Pantry();
-		final Item oldTestItem = new Item();
-		final Item newTestItem = new Item();
+		final Item oldTestItem = new Item("Old Item");
+		final Item newTestItem = new Item("New Item");
 		final PantryEvent testEvent = new ItemChangeEvent(testPantry, oldTestItem, newTestItem);
 
 		assertEquals(testPantry, testEvent.getPantry());

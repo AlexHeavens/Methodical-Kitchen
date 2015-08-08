@@ -51,4 +51,35 @@ public class ItemChangeEventTest {
 		}
 	}
 
+	@Test
+	public void testSameItemChangeEvent() {
+		final Pantry testPantry = new Pantry();
+		final Item testItem = new Item();
+
+		try {
+			@SuppressWarnings("unused")
+			final ItemChangeEvent testEvent = new ItemChangeEvent(testPantry, testItem, testItem);
+			fail("Able to create ItemChangeEvent where the oldItem and newItem is the same Object.");
+		} catch (final IllegalArgumentException illegalArgumentException) {
+			assertEquals("ItemChangeEvent oldItem and newItem cannot be equivalent.",
+					illegalArgumentException.getMessage());
+		}
+	}
+
+	@Test
+	public void testEquivalentItemChangeEvent() {
+		final Pantry testPantry = new Pantry();
+		final Item oldTestItem = new Item("Item");
+		final Item newTestItem = new Item("Item");
+
+		try {
+			@SuppressWarnings("unused")
+			final ItemChangeEvent testEvent = new ItemChangeEvent(testPantry, oldTestItem, newTestItem);
+			fail("Able to create ItemChangeEvent where the oldItem and newItem are equivalent.");
+		} catch (final IllegalArgumentException illegalArgumentException) {
+			assertEquals("ItemChangeEvent oldItem and newItem cannot be equivalent.",
+					illegalArgumentException.getMessage());
+		}
+	}
+
 }
