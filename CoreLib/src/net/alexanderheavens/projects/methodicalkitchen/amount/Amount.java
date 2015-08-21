@@ -1,4 +1,4 @@
-package net.alexanderheavens.projects.methodicalkitchen.pantry;
+package net.alexanderheavens.projects.methodicalkitchen.amount;
 
 /**
  * Immutable amount.
@@ -48,7 +48,7 @@ public abstract class Amount {
 	/**
 	 * The quantity of this amount when converted to Kilograms.
 	 * 
-	 * @return Equivelent amount in Kilograms.
+	 * @return Equivalent amount in Kilograms.
 	 */
 	public abstract double amountInKg();
 

@@ -1,4 +1,4 @@
-package net.alexanderheavens.projects.methodicalkitchen.pantry;
+package net.alexanderheavens.projects.methodicalkitchen.amount;
 
 /**
  * Kilogram defined amounts.

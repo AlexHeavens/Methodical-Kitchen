@@ -3,9 +3,9 @@ package net.alexanderheavens.projects.methodicalkitchen.tests.pantry;
 import static org.junit.Assert.*;
 import org.junit.Test;
 
+import net.alexanderheavens.projects.methodicalkitchen.amount.KgAmount;
 import net.alexanderheavens.projects.methodicalkitchen.pantry.Item;
 import net.alexanderheavens.projects.methodicalkitchen.pantry.ItemInstance;
-import net.alexanderheavens.projects.methodicalkitchen.pantry.KgAmount;
 
 public class ItemInstanceTest {
 

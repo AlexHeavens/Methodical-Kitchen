@@ -1,5 +1,8 @@
 package net.alexanderheavens.projects.methodicalkitchen.pantry;
 
+import net.alexanderheavens.projects.methodicalkitchen.amount.Amount;
+import net.alexanderheavens.projects.methodicalkitchen.amount.KgAmount;
+
 /**
  * An instance of a foodstuff or household item held in a given Pantry.
  *
@@ -29,6 +32,10 @@ public class ItemInstance {
 	 * 
 	 * @param pantry
 	 *            the Pantry to add the item to, must be non-null.
+	 * @param item
+	 *            the abstract Item type of the instance.
+	 * @param amount
+	 *            the amount of the Item stored in this instance.
 	 */
 	public ItemInstance(final Pantry pantry, final Item item, final Amount amount) {
 

@@ -12,9 +12,13 @@ import java.util.HashSet;
 public class Pantry {
 
 	private final HashSet<ItemInstance> itemInstances;
+	private final HashSet<IItemListener> itemListeners;
+	private final HashSet<Item> items;
 
 	public Pantry() {
 		itemInstances = new HashSet<ItemInstance>();
+		itemListeners = new HashSet<IItemListener>();
+		items = new HashSet<Item>();
 	}
 
 	/**
@@ -25,6 +29,15 @@ public class Pantry {
 	public ItemInstance addItemInstance() {
 		final ItemInstance newItemInstance = new ItemInstance(this);
 		itemInstances.add(newItemInstance);
+
+		final Item newItem = newItemInstance.getItem();
+		items.add(newItem);
+
+		for (final IItemListener listener : itemListeners) {
+			newItem.addItemListener(listener);
+		    listener.synchroniseItem(newItem);
+		}
+
 		return newItemInstance;
 	}
 
@@ -35,6 +48,26 @@ public class Pantry {
 	 */
 	public Collection<ItemInstance> getItemInstances() {
 		return itemInstances;
+	}
+
+	/**
+	 * Add an IItemListener that will receive updates whenever an Item in this
+	 * Pantry throws an ItemEvent.
+	 * 
+	 * <p>
+	 * Adding an item listener will automatically subscribe it to all existing
+	 * Items in the Pantry.
+	 * </p>
+	 * 
+	 * @param itemListener
+	 *            new IItemListener.
+	 */
+	public void addItemListener(IItemListener itemListener) {
+		itemListeners.add(itemListener);
+		for (final Item item : items) {
+			item.addItemListener(itemListener);
+			itemListener.synchroniseItem(item);
+		}
 	}
 
 }

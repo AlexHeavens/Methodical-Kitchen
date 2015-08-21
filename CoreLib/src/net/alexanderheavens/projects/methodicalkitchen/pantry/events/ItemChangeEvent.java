@@ -1,62 +1,43 @@
 package net.alexanderheavens.projects.methodicalkitchen.pantry.events;
 
 import net.alexanderheavens.projects.methodicalkitchen.pantry.Item;
-import net.alexanderheavens.projects.methodicalkitchen.pantry.Pantry;
 
 /**
- * Event for when an Item changes a value in a Pantry.
+ * Event for when an Item changes in some way.
  * 
  * @author Alexander Heavens (alexander.heavens@gmail.com)
  *
  */
-public class ItemChangeEvent extends PantryEvent {
+public class ItemChangeEvent extends ItemEvent {
 
-	private final Item oldItem;
-	private final Item newItem;
+	private final String oldName;
 
 	/**
 	 * Create a new ItemChangeEvent recording the old and new state of and Item.
 	 * 
-	 * @param pantry
-	 *            the Pantry that the event occurred within.
-	 * @param oldItem
-	 *            old state of the Item.
-	 * @param newItem
-	 *            new state of the Item.
+	 * @param oldName
+	 *            the name of the Item prior to modification (it may not have
+	 *            changed).
+	 * @param item
+	 *            item that has changed.
 	 */
-	public ItemChangeEvent(final Pantry pantry, final Item oldItem, final Item newItem) {
-		super(pantry);
+	public ItemChangeEvent(final String oldName, final Item item) {
+		super(item);
 
-		if (oldItem == null) {
-			throw new NullPointerException("ItemChangeEvent oldItem");
-		}
-		if (newItem == null) {
-			throw new NullPointerException("ItemChangeEvent newItem");
-		}
-		if (oldItem.equals(newItem)) {
-			throw new IllegalArgumentException("ItemChangeEvent oldItem and newItem cannot be equivalent.");
+		if (oldName == null) {
+			throw new NullPointerException("ItemChangeEvent oldName");
 		}
 
-		this.oldItem = oldItem;
-		this.newItem = newItem;
+		this.oldName = oldName;
 	}
 
 	/**
-	 * The previous state of the Item, before the change.
+	 * The previous name of the Item, before the change.
 	 * 
-	 * @return Old Item state.
+	 * @return Old Item name.
 	 */
-	public Item getOldItem() {
-		return oldItem;
-	}
-
-	/**
-	 * New item state, after the change.
-	 * 
-	 * @return New state of the Item.
-	 */
-	public Item getNewItem() {
-		return newItem;
+	public String getOldName() {
+		return oldName;
 	}
 
 }

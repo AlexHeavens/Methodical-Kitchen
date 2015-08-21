@@ -30,5 +30,5 @@ public class PantryTest {
 		}
 		assertEquals(testItemInstanceSet.size(), instancesPresent.size());
 	}
-
+	
 }
