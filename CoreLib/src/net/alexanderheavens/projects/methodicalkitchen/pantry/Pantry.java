@@ -11,16 +11,19 @@ import java.util.HashSet;
  */
 public class Pantry {
 
+	//// FIELDS
 	private final HashSet<ItemInstance> itemInstances;
 	private final HashSet<IItemListener> itemListeners;
 	private final HashSet<Item> items;
 
+	//// LIFECYCLE
 	public Pantry() {
 		itemInstances = new HashSet<ItemInstance>();
 		itemListeners = new HashSet<IItemListener>();
 		items = new HashSet<Item>();
 	}
 
+	//// ITEMS
 	/**
 	 * Add a given instance of a pantry item to the pantry.
 	 * 
@@ -49,6 +52,7 @@ public class Pantry {
 		return itemInstances;
 	}
 
+	//// LISTENERS
 	/**
 	 * Add an IItemListener that will receive updates whenever an Item in this
 	 * Pantry throws an ItemEvent.

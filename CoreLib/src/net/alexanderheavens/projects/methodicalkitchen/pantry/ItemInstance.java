@@ -13,10 +13,12 @@ import net.alexanderheavens.projects.methodicalkitchen.amount.KgAmount;
  */
 public class ItemInstance {
 
+	//// FIELDS
 	private final Pantry pantry;
 	private final Amount amount;
 	private final Item item;
 
+	//// LIFECYCLE
 	/**
 	 * Create a default, empty ItemInstance in a given Pantry.
 	 * 
@@ -55,6 +57,7 @@ public class ItemInstance {
 
 	}
 
+	//// GETTERS & SETTERS
 	/**
 	 * The Pantry the item instance was added to.
 	 * 

@@ -10,8 +10,10 @@ import net.alexanderheavens.projects.methodicalkitchen.pantry.Item;
  */
 public class ItemEvent {
 
+	//// FIELDS
 	private final Item item;
 
+	//// LIFECYCLE
 	/**
 	 * Create a new event for a given Item.
 	 * 
@@ -27,6 +29,7 @@ public class ItemEvent {
 		this.item = item;
 	}
 
+	//// GETTERS & SETTERS
 	/**
 	 * Item of the event.
 	 * 

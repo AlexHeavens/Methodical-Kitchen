@@ -10,8 +10,10 @@ import net.alexanderheavens.projects.methodicalkitchen.pantry.Item;
  */
 public class ItemChangeEvent extends ItemEvent {
 
+	//// FIELDS
 	private final String oldName;
 
+	//// LIFECYCLE
 	/**
 	 * Create a new ItemChangeEvent recording the old and new state of and Item.
 	 * 
@@ -31,6 +33,7 @@ public class ItemChangeEvent extends ItemEvent {
 		this.oldName = oldName;
 	}
 
+	//// GETTERS & SETTERS
 	/**
 	 * The previous name of the Item, before the change.
 	 * 

@@ -5,7 +5,6 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 
 import net.alexanderheavens.projects.methodicalkitchen.pantry.Item;
-import net.alexanderheavens.projects.methodicalkitchen.pantry.Pantry;
 
 public class ItemListenerTest {
 
