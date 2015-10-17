@@ -35,7 +35,6 @@ public class Pantry {
 
 		for (final IItemListener listener : itemListeners) {
 			newItem.addItemListener(listener);
-		    listener.synchroniseItem(newItem);
 		}
 
 		return newItemInstance;
@@ -62,12 +61,22 @@ public class Pantry {
 	 * @param itemListener
 	 *            new IItemListener.
 	 */
-	public void addItemListener(IItemListener itemListener) {
+	public void addItemListener(final IItemListener itemListener) {
 		itemListeners.add(itemListener);
 		for (final Item item : items) {
 			item.addItemListener(itemListener);
 			itemListener.synchroniseItem(item);
 		}
+	}
+
+	/**
+	 * If a given ItemListener is attached as a listener to this Pantry.
+	 * 
+	 * @param itemListener
+	 * @return itemListener is listening to this Pantry.
+	 */
+	public boolean isItemListener(final IItemListener itemListener) {
+		return itemListeners.contains(itemListener);
 	}
 
 }

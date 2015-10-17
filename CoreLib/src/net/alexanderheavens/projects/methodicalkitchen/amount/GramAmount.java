@@ -8,16 +8,18 @@ package net.alexanderheavens.projects.methodicalkitchen.amount;
  */
 public class GramAmount extends Amount {
 
+	//// LIFECYCLE
 	/**
 	 * Create a gram amount.
 	 * 
 	 * @param amount
 	 *            amount in grams.
 	 */
-	public GramAmount(double amount){
+	public GramAmount(double amount) {
 		super(amount);
 	}
 
+	//// GETTERS & SETTERS
 	@Override
 	public double amountInKg() {
 		return 0.001d;
@@ -27,5 +29,5 @@ public class GramAmount extends Amount {
 	public String getDisplayName() {
 		return "Grams";
 	}
-	
+
 }

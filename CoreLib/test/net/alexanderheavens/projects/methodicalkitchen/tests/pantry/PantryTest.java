@@ -7,6 +7,7 @@ import java.util.HashSet;
 import org.junit.Test;
 
 import net.alexanderheavens.projects.methodicalkitchen.pantry.Pantry;
+import net.alexanderheavens.projects.methodicalkitchen.pantry.Item;
 import net.alexanderheavens.projects.methodicalkitchen.pantry.ItemInstance;
 
 public class PantryTest {
@@ -30,5 +31,52 @@ public class PantryTest {
 		}
 		assertEquals(testItemInstanceSet.size(), instancesPresent.size());
 	}
-	
+
+	@Test
+	public void testAddItemListeners() {
+
+		final Pantry testPantry = new Pantry();
+
+		final MockItemListener testItemListenerA = new MockItemListener();
+		final MockItemListener testItemListenerB = new MockItemListener();
+
+		// Check that the default state of the Pantry is correct.
+		assertFalse(testPantry.isItemListener(testItemListenerA));
+		assertFalse(testPantry.isItemListener(testItemListenerB));
+
+		// Add and check that ItemListeners are added appropriately.
+		testPantry.addItemListener(testItemListenerA);
+
+		assertTrue(testPantry.isItemListener(testItemListenerA));
+		assertFalse(testPantry.isItemListener(testItemListenerB));
+
+		testPantry.addItemListener(testItemListenerB);
+
+		assertTrue(testPantry.isItemListener(testItemListenerA));
+		assertTrue(testPantry.isItemListener(testItemListenerB));
+
+		assertEquals(0, testItemListenerA.getItemEventCount());
+		assertEquals(0, testItemListenerB.getItemEventCount());
+		assertEquals(0, testItemListenerA.getSynchroniseItemCount());
+		assertEquals(0, testItemListenerB.getSynchroniseItemCount());
+
+		// Check that item synchronisation is working.
+
+		testPantry.addItemInstance();
+
+		assertEquals(0, testItemListenerA.getItemEventCount());
+		assertEquals(0, testItemListenerB.getItemEventCount());
+		assertEquals(1, testItemListenerA.getSynchroniseItemCount());
+		assertEquals(1, testItemListenerB.getSynchroniseItemCount());
+
+		final Item itemA = testItemListenerA.getSynchroniseItem(0);
+
+		assertNotNull(itemA);
+		assertEquals(Item.DFLT_NAME, itemA.getName());
+
+		final Item itemA2 = testItemListenerB.getSynchroniseItem(0);
+		assertTrue(itemA == itemA2);
+
+	}
+
 }

@@ -12,8 +12,10 @@ package net.alexanderheavens.projects.methodicalkitchen.amount;
  */
 public abstract class Amount {
 
+	//// FIELDS
 	private final double amount;
 
+	//// LIFECYCLE
 	/**
 	 * Create an amount with a given numerical quantity.
 	 * 
@@ -23,12 +25,13 @@ public abstract class Amount {
 	 */
 	public Amount(final double amount) {
 		if (amount <= 0) {
-			throw new IllegalArgumentException("amount <= 0");
+			throw new IllegalArgumentException("amount <= 0, amount=" + amount);
 		}
 
 		this.amount = amount;
 	}
 
+	//// GETTERS & SETTERS
 	/**
 	 * User-friendly display name for the amount.
 	 * 

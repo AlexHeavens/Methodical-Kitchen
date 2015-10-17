@@ -18,15 +18,18 @@ import net.alexanderheavens.projects.methodicalkitchen.pantry.events.ItemEvent;
  */
 public class Item {
 
+	//// CONSTANTS
 	/**
 	 * Default name of an Item.
 	 */
 	public final static String DFLT_NAME = "New Item";
 
+	//// FIELDS
 	private String name;
 	private boolean inInit = true;
 	private final HashSet<IItemListener> listeners;
 
+	//// LIFECYCLE
 	/**
 	 * Create an Item with the default name, DFLT_NAME.
 	 */
@@ -48,7 +51,16 @@ public class Item {
 		inInit = false;
 	}
 
-	public void checkName(final String name) {
+	//// GETTERS & SETTERS
+	/**
+	 * Sanity check that a given name is valid for the Item.
+	 * 
+	 * @param name
+	 *            proposed name.
+	 * @throws IllegalArgumentException
+	 *             If name is not acceptable.
+	 */
+	private void checkName(final String name) {
 		if (name == null) {
 			throw new NullPointerException("Item name");
 		}
@@ -85,6 +97,12 @@ public class Item {
 	}
 
 	@Override
+	public int hashCode() {
+		return name.hashCode();
+	}
+
+	//// LISTENERS
+	@Override
 	public boolean equals(Object o) {
 		boolean isEqual = false;
 		if (o instanceof Item) {
@@ -92,11 +110,6 @@ public class Item {
 			isEqual = otherItem.getName().equals(getName());
 		}
 		return isEqual;
-	}
-
-	@Override
-	public int hashCode() {
-		return name.hashCode();
 	}
 
 	/**
@@ -107,12 +120,32 @@ public class Item {
 	 */
 	public void addItemListener(final IItemListener itemListener) {
 		listeners.add(itemListener);
+		itemListener.synchroniseItem(this);
 	}
 
 	private void updateItemListeners(final ItemEvent event) {
 		for (final IItemListener listener : listeners) {
 			listener.onItemEvent(event);
 		}
+	}
+
+	/**
+	 * If a given item listener is attached.
+	 * 
+	 * @param listener
+	 * @return if listener is attached.
+	 */
+	public boolean hasItemListener(final IItemListener listener) {
+		return listeners.contains(listener);
+	}
+
+	/**
+	 * The number of listeners attached to the Item.
+	 * 
+	 * @return the number of listeners attached to the Item.
+	 */
+	public int getItemListenerCount() {
+		return listeners.size();
 	}
 
 }

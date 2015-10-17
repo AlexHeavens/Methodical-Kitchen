@@ -8,11 +8,13 @@ package net.alexanderheavens.projects.methodicalkitchen.amount;
  */
 public class KgAmount extends Amount {
 
+	//// CONSTANTS
 	/**
 	 * The default quantity for Kilogram amounts.
 	 */
 	public static final double DFLT_AMOUNT = 1d;
 
+	//// LIFECYCLE
 	/**
 	 * Create a Kilogram amount with the default amount quantity (DFLT_AMOUNT).
 	 */
@@ -30,6 +32,7 @@ public class KgAmount extends Amount {
 		super(amount);
 	}
 
+	//// GETTERS & SETTERS
 	@Override
 	public double amountInKg() {
 		return 1d;

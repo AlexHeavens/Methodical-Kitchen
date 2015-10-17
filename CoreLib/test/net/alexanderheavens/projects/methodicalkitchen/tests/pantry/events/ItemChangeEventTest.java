@@ -1,4 +1,4 @@
-package net.alexanderheavens.projects.methodicalkitchen.tests.pantry;
+package net.alexanderheavens.projects.methodicalkitchen.tests.pantry.events;
 
 import static org.junit.Assert.*;
 

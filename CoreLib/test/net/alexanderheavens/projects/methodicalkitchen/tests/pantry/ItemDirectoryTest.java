@@ -23,20 +23,24 @@ public class ItemDirectoryTest {
 		
 		testPantryA.addItemListener(testDirectory);
 		testPantryB.addItemListener(testDirectory);
+		assertEquals(0, testDirectory.size());
 		
 		// Add an item to each Pantry to trigger an update in the directory.
 		final ItemInstance itemInstanceA = testPantryA.addItemInstance();
 		final Item itemA = itemInstanceA.getItem();
 		assertTrue(testDirectory.contains(itemA.getName()));
+		assertEquals(1, testDirectory.size());
 
 		final ItemInstance itemInstanceB = testPantryB.addItemInstance();
 		assertTrue(testDirectory.contains(itemInstanceB.getItem().getName()));
+		assertEquals(1, testDirectory.size());
 		
 		// Change the name of an Item.
 		final String itemANewName = "Item A new name";
 		itemA.setName(itemANewName);
 		
 		assertTrue(testDirectory.contains(itemA.getName()));
+		assertEquals(1, testDirectory.size());
 	}
-
+	
 }
