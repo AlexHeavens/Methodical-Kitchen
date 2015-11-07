@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">Methodical Kitchen</string>
     <string name="action_settings">Settings</string>
+    <string name="action_new_pantry">New Pantry</string>
+    <string name="enter_pantry_name">Enter Pantry Name</string>
+    <string name="pantry_list">Pantry List</string>
 </resources>
